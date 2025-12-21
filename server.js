@@ -1,4 +1,5 @@
 // server/server.js
+require("dotenv").config();
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
