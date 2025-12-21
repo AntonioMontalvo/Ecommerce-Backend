@@ -10,7 +10,6 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cors from "cors";
 import orderRoutes from "./routes/orderRoutes.js";
 // import csurf from "csurf"; // Temporarily disabled for development
