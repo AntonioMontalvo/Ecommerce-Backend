@@ -1,6 +1,9 @@
 // server/server.js
 import dotenv from "dotenv";
-dotenv.config(); // <--- THIS MUST BE THE VERY FIRST LINE AFTER IMPORTS
+// Load .env file only in development (Render provides env vars directly in production)
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
 import express from "express";
 import mongoose from "mongoose";
