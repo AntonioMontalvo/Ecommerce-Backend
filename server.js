@@ -37,11 +37,15 @@ app.use(express.urlencoded({ extended: true })); // Allows form data parsing
 app.use(cookieParser()); // MUST be before cors to handle credentials correctly
 app.use(
   cors({
-    // Allow the front-end origin from env (useful when Vite picks a different port)
-    origin: process.env.CLIENT_URL || true,
-    credentials: true, // MUST be set to true to allow cookies/JWTs
+    origin: [
+      "http://localhost:5174", // Local development
+      "https://antonio-portfolio-master.vercel.app",
+      "https://antonio-ecommerce-app.vercel.app",
+      /\.vercel\.app$/, // Allow all Vercel deployments
+    ],
+    credentials: true,
   })
-); // Enables cross-origin requests
+);
 
 // File Upload Middleware (MUST be before routes that use it)
 app.use(
