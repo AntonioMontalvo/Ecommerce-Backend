@@ -17,6 +17,7 @@ import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
 import Product from "./models/ProductModel.js";
 
 // Other standard node modules
@@ -113,6 +114,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes); //MOUNT USER ROUTES
 app.use("/api/upload", uploadRoutes); // MOUNT UPLOAD ROUTES
 app.use("/api/orders", orderRoutes); // MOUNT ORDER ROUTES
+app.use("/api/cart", cartRoutes); // MOUNT CART ROUTES
 
 // Custom Error Handler (must be defined before it is used, and registered after all routes)
 const errorHandler = (err, req, res, next) => {
