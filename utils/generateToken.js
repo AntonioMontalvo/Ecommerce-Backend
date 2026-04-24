@@ -11,8 +11,9 @@ const generateToken = (res, userId) => {
   res.cookie("jwt", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production", // Use secure in production
-    // In development we allow a more permissive sameSite so cookies are sent from localhost:5173 -> localhost:54321
-    sameSite: process.env.NODE_ENV === "production" ? "strict" : "lax",
+    // "none" required for cross-origin requests (Vercel frontend → Render backend)
+    // "lax" in development (same-origin localhost)
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days (milliseconds)
   });
 };
